@@ -1,0 +1,82 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-command-device-heading"
+        data-cy="CommandDeviceCreateUpdateHeading"
+        jhiTranslate="smolPlusTempApp.commandDevice.home.createOrEditLabel"
+      >
+        Crear o editar Command Device
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="smolPlusTempApp.commandDevice.command" for="field_command">Command</label>
+          <select
+            class="form-control"
+            id="field_command"
+            data-cy="command"
+            name="command"
+            formControlName="command"
+            [compareWith]="compareCommand"
+          >
+            <option *ngIf="!editForm.get('command')!.value" [ngValue]="null" selected></option>
+            <option [ngValue]="commandOption" *ngFor="let commandOption of commandsSharedCollection">{{ commandOption.id }}</option>
+          </select>
+        </div>
+        <div *ngIf="editForm.get(['command'])!.invalid && (editForm.get(['command'])!.dirty || editForm.get(['command'])!.touched)">
+          <small
+            class="form-text text-danger"
+            *ngIf="editForm.get(['command'])?.errors?.required"
+            jhiTranslate="entity.validation.required"
+          >
+            Este campo es obligatorio.
+          </small>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="smolPlusTempApp.commandDevice.device" for="field_device">Device</label>
+          <select
+            class="form-control"
+            id="field_device"
+            data-cy="device"
+            name="device"
+            formControlName="device"
+            [compareWith]="compareDevice"
+          >
+            <option *ngIf="!editForm.get('device')!.value" [ngValue]="null" selected></option>
+            <option [ngValue]="deviceOption" *ngFor="let deviceOption of devicesSharedCollection">{{ deviceOption.id }}</option>
+          </select>
+        </div>
+        <div *ngIf="editForm.get(['device'])!.invalid && (editForm.get(['device'])!.dirty || editForm.get(['device'])!.touched)">
+          <small class="form-text text-danger" *ngIf="editForm.get(['device'])?.errors?.required" jhiTranslate="entity.validation.required">
+            Este campo es obligatorio.
+          </small>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancelar</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Guardar</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

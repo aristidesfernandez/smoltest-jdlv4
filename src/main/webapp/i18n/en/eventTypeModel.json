@@ -1,0 +1,25 @@
+{
+  "smolPlusTempApp": {
+    "eventTypeModel": {
+      "home": {
+        "title": "Event Type Models",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Event Type Model",
+        "createOrEditLabel": "Create or edit a Event Type Model",
+        "notFound": "No Event Type Models found"
+      },
+      "created": "A new Event Type Model is created with identifier {{ param }}",
+      "updated": "A Event Type Model is updated with identifier {{ param }}",
+      "deleted": "A Event Type Model is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Event Type Model {{ id }}?"
+      },
+      "detail": {
+        "title": "Event Type Model"
+      },
+      "id": "Id",
+      "modelId": "Model Id",
+      "eventType": "Event Type"
+    }
+  }
+}

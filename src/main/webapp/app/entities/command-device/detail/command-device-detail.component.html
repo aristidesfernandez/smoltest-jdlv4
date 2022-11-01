@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="commandDevice">
+      <h2 data-cy="commandDeviceDetailsHeading"><span jhiTranslate="smolPlusTempApp.commandDevice.detail.title">Command Device</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ commandDevice.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="smolPlusTempApp.commandDevice.command">Command</span></dt>
+        <dd>
+          <div *ngIf="commandDevice.command">
+            <a [routerLink]="['/command', commandDevice.command.id, 'view']">{{ commandDevice.command.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="smolPlusTempApp.commandDevice.device">Device</span></dt>
+        <dd>
+          <div *ngIf="commandDevice.device">
+            <a [routerLink]="['/device', commandDevice.device.id, 'view']">{{ commandDevice.device.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Volver</span>
+      </button>
+
+      <button type="button" [routerLink]="['/command-device', commandDevice.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+      </button>
+    </div>
+  </div>
+</div>

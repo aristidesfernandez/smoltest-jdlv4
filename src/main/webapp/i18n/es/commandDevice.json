@@ -1,0 +1,25 @@
+{
+  "smolPlusTempApp": {
+    "commandDevice": {
+      "home": {
+        "title": "Command Devices",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Command Device",
+        "createOrEditLabel": "Crear o editar Command Device",
+        "notFound": "Ningún Command Devices encontrado"
+      },
+      "created": "Un nuevo Command Device ha sido creado con el identificador {{ param }}",
+      "updated": "Un Command Device ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Command Device ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Command Device {{ id }}?"
+      },
+      "detail": {
+        "title": "Command Device"
+      },
+      "id": "ID",
+      "command": "Command",
+      "device": "Device"
+    }
+  }
+}

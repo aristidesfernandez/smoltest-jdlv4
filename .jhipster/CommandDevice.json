@@ -1,0 +1,28 @@
+{
+  "applications": ["smolPlusTemp"],
+  "changelogDate": "20210927201220",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "command_device",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "CommandDevice",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "command",
+      "relationshipName": "command",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityName": "device",
+      "relationshipName": "device",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "service": "serviceImpl"
+}

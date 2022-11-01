@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="eventTypeModel">
+      <h2 data-cy="eventTypeModelDetailsHeading">
+        <span jhiTranslate="smolPlusTempApp.eventTypeModel.detail.title">Event Type Model</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="smolPlusTempApp.eventTypeModel.id">Id</span></dt>
+        <dd>
+          <span>{{ eventTypeModel.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="smolPlusTempApp.eventTypeModel.modelId">Model Id</span></dt>
+        <dd>
+          <span>{{ eventTypeModel.modelId }}</span>
+        </dd>
+        <dt><span jhiTranslate="smolPlusTempApp.eventTypeModel.eventType">Event Type</span></dt>
+        <dd>
+          <div *ngIf="eventTypeModel.eventType">
+            <a [routerLink]="['/event-type', eventTypeModel.eventType.id, 'view']">{{ eventTypeModel.eventType.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Volver</span>
+      </button>
+
+      <button type="button" [routerLink]="['/event-type-model', eventTypeModel.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+      </button>
+    </div>
+  </div>
+</div>

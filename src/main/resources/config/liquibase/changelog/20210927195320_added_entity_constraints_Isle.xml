@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Isle.
+    -->
+    <changeSet id="20210927195320-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="establishment_id"
+                                 baseTableName="isle"
+                                 constraintName="fk_isle__establishment_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="establishment"/>
+    </changeSet>
+</databaseChangeLog>

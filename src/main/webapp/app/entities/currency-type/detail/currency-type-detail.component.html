@@ -1,0 +1,74 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="currencyType">
+      <h2 data-cy="currencyTypeDetailsHeading"><span jhiTranslate="smolPlusTempApp.currencyType.detail.title">Currency Type</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="smolPlusTempApp.currencyType.id">Id</span></dt>
+        <dd>
+          <span>{{ currencyType.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="smolPlusTempApp.currencyType.name">Name</span></dt>
+        <dd>
+          <span>{{ currencyType.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="smolPlusTempApp.currencyType.code">Code</span></dt>
+        <dd>
+          <span>{{ currencyType.code }}</span>
+        </dd>
+        <dt><span jhiTranslate="smolPlusTempApp.currencyType.symbol">Symbol</span></dt>
+        <dd>
+          <span>{{ currencyType.symbol }}</span>
+        </dd>
+        <dt><span jhiTranslate="smolPlusTempApp.currencyType.isPriority">Is Priority</span></dt>
+        <dd>
+          <span>{{ currencyType.isPriority }}</span>
+        </dd>
+        <dt><span jhiTranslate="smolPlusTempApp.currencyType.location">Location</span></dt>
+        <dd>
+          <span>{{ currencyType.location }}</span>
+        </dd>
+        <dt><span jhiTranslate="smolPlusTempApp.currencyType.exchangeRate">Exchange Rate</span></dt>
+        <dd>
+          <span>{{ currencyType.exchangeRate }}</span>
+        </dd>
+        <dt><span jhiTranslate="smolPlusTempApp.currencyType.decimalPlaces">Decimal Places</span></dt>
+        <dd>
+          <span>{{ currencyType.decimalPlaces }}</span>
+        </dd>
+        <dt><span jhiTranslate="smolPlusTempApp.currencyType.decimalSeparator">Decimal Separator</span></dt>
+        <dd>
+          <span>{{ currencyType.decimalSeparator }}</span>
+        </dd>
+        <dt><span jhiTranslate="smolPlusTempApp.currencyType.thousandSeparator">Thousand Separator</span></dt>
+        <dd>
+          <span>{{ currencyType.thousandSeparator }}</span>
+        </dd>
+        <dt><span jhiTranslate="smolPlusTempApp.currencyType.description">Description</span></dt>
+        <dd>
+          <span>{{ currencyType.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="smolPlusTempApp.currencyType.establishment">Establishment</span></dt>
+        <dd>
+          <div *ngIf="currencyType.establishment">
+            <a [routerLink]="['/establishment', currencyType.establishment.id, 'view']">{{ currencyType.establishment.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Volver</span>
+      </button>
+
+      <button type="button" [routerLink]="['/currency-type', currencyType.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+      </button>
+    </div>
+  </div>
+</div>

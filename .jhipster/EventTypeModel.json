@@ -1,0 +1,30 @@
+{
+  "applications": ["smolPlusTemp"],
+  "changelogDate": "20210927200920",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "event_type_model",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "modelId",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "EventTypeModel",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "eventType",
+      "relationshipName": "eventType",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}
