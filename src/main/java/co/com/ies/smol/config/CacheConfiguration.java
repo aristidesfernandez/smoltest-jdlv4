@@ -53,6 +53,7 @@ public class CacheConfiguration {
             createCache(cm, co.com.ies.smol.domain.EventDevice.class.getName());
             createCache(cm, co.com.ies.smol.domain.DeviceEstablishment.class.getName());
             createCache(cm, co.com.ies.smol.domain.CounterType.class.getName());
+            createCache(cm, co.com.ies.smol.domain.CounterType.class.getName() + ".formulaCounterTypes");
             createCache(cm, co.com.ies.smol.domain.CounterEvent.class.getName());
             createCache(cm, co.com.ies.smol.domain.DeviceType.class.getName());
             createCache(cm, co.com.ies.smol.domain.DeviceCategory.class.getName());
@@ -76,6 +77,7 @@ public class CacheConfiguration {
             createCache(cm, co.com.ies.smol.domain.Command.class.getName());
             createCache(cm, co.com.ies.smol.domain.CommandModel.class.getName());
             createCache(cm, co.com.ies.smol.domain.CommandDevice.class.getName());
+            createCache(cm, co.com.ies.smol.domain.FormulaCounterType.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

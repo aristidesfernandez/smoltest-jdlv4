@@ -23,7 +23,8 @@
       "includedInFormula": "Included In Formula",
       "prize": "Prize",
       "category": "Category",
-      "udteWaitTime": "Udte Wait Time"
+      "udteWaitTime": "Udte Wait Time",
+      "formulaCounterType": "Formula Counter Type"
     }
   }
 }

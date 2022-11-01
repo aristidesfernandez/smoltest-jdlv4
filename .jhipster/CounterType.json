@@ -50,6 +50,13 @@
   "name": "CounterType",
   "pagination": "pagination",
   "readOnly": false,
-  "relationships": [],
+  "relationships": [
+    {
+      "otherEntityName": "formulaCounterType",
+      "otherEntityRelationshipName": "counterType",
+      "relationshipName": "formulaCounterType",
+      "relationshipType": "one-to-many"
+    }
+  ],
   "service": "serviceImpl"
 }

@@ -139,4 +139,9 @@ export const EntityNavbarItems = [
     route: 'command-device',
     translationKey: 'global.menu.entities.commandDevice',
   },
+  {
+    name: 'FormulaCounterType',
+    route: 'formula-counter-type',
+    translationKey: 'global.menu.entities.formulaCounterType',
+  },
 ];

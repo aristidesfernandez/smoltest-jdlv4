@@ -41,7 +41,7 @@ application {
 
 entities EventType, Establishment, EventDevice, DeviceEstablishment, CounterType, CounterEvent, DeviceType, DeviceCategory, Isle, CurrencyType, Device,
   CounterDevice, Manufacturer, Formula, Model, InterfaceBoard, DeviceInterface, Operator, OperationalPropertiesEstablishment, UserAccess, Municipality, Province, Country, KeyOperatingProperty,
-  EventTypeModel, Command, CommandModel, CommandDevice 
+  EventTypeModel, Command, CommandModel, CommandDevice, FormulaCounterType 
 }
 
 entity EventType {
@@ -307,6 +307,8 @@ entity CommandModel {
 
 entity CommandDevice
 
+entity FormulaCounterType
+
 relationship ManyToOne {
   EventDevice{eventType required} to EventType 
   EventTypeModel{eventType } to EventType 
@@ -335,6 +337,8 @@ relationship ManyToOne {
   CommandModel{model required} to Model
   CommandDevice{command required} to Command
   CommandDevice{device required} to Device
+  FormulaCounterType {formula} to Formula 
+  FormulaCounterType to CounterType 
 }
 
 service all with serviceImpl

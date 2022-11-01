@@ -24,7 +24,7 @@
       - Command
       - CommandModel
       - CommandDevice
-
+      - FormulaCounterType
 
 ### Gestión de eventos
 

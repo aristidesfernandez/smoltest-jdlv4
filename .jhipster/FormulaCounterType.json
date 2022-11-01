@@ -1,0 +1,27 @@
+{
+  "applications": ["smolPlusTemp"],
+  "changelogDate": "20221101193238",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "formula_counter_type",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "FormulaCounterType",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "formula",
+      "relationshipName": "formula",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "counterType",
+      "otherEntityRelationshipName": "formulaCounterType",
+      "relationshipName": "counterType",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

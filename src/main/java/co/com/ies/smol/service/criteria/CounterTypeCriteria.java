@@ -35,6 +35,8 @@ public class CounterTypeCriteria implements Serializable, Criteria {
 
     private IntegerFilter udteWaitTime;
 
+    private LongFilter formulaCounterTypeId;
+
     private Boolean distinct;
 
     public CounterTypeCriteria() {}
@@ -47,6 +49,7 @@ public class CounterTypeCriteria implements Serializable, Criteria {
         this.prize = other.prize == null ? null : other.prize.copy();
         this.category = other.category == null ? null : other.category.copy();
         this.udteWaitTime = other.udteWaitTime == null ? null : other.udteWaitTime.copy();
+        this.formulaCounterTypeId = other.formulaCounterTypeId == null ? null : other.formulaCounterTypeId.copy();
         this.distinct = other.distinct;
     }
 
@@ -160,6 +163,21 @@ public class CounterTypeCriteria implements Serializable, Criteria {
         this.udteWaitTime = udteWaitTime;
     }
 
+    public LongFilter getFormulaCounterTypeId() {
+        return formulaCounterTypeId;
+    }
+
+    public LongFilter formulaCounterTypeId() {
+        if (formulaCounterTypeId == null) {
+            formulaCounterTypeId = new LongFilter();
+        }
+        return formulaCounterTypeId;
+    }
+
+    public void setFormulaCounterTypeId(LongFilter formulaCounterTypeId) {
+        this.formulaCounterTypeId = formulaCounterTypeId;
+    }
+
     public Boolean getDistinct() {
         return distinct;
     }
@@ -185,13 +203,24 @@ public class CounterTypeCriteria implements Serializable, Criteria {
             Objects.equals(prize, that.prize) &&
             Objects.equals(category, that.category) &&
             Objects.equals(udteWaitTime, that.udteWaitTime) &&
+            Objects.equals(formulaCounterTypeId, that.formulaCounterTypeId) &&
             Objects.equals(distinct, that.distinct)
         );
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(counterCode, name, description, includedInFormula, prize, category, udteWaitTime, distinct);
+        return Objects.hash(
+            counterCode,
+            name,
+            description,
+            includedInFormula,
+            prize,
+            category,
+            udteWaitTime,
+            formulaCounterTypeId,
+            distinct
+        );
     }
 
     // prettier-ignore
@@ -205,6 +234,7 @@ public class CounterTypeCriteria implements Serializable, Criteria {
             (prize != null ? "prize=" + prize + ", " : "") +
             (category != null ? "category=" + category + ", " : "") +
             (udteWaitTime != null ? "udteWaitTime=" + udteWaitTime + ", " : "") +
+            (formulaCounterTypeId != null ? "formulaCounterTypeId=" + formulaCounterTypeId + ", " : "") +
             (distinct != null ? "distinct=" + distinct + ", " : "") +
             "}";
     }

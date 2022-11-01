@@ -147,6 +147,11 @@ import { RouterModule } from '@angular/router';
         data: { pageTitle: 'smolPlusTempApp.commandDevice.home.title' },
         loadChildren: () => import('./command-device/command-device.module').then(m => m.CommandDeviceModule),
       },
+      {
+        path: 'formula-counter-type',
+        data: { pageTitle: 'smolPlusTempApp.formulaCounterType.home.title' },
+        loadChildren: () => import('./formula-counter-type/formula-counter-type.module').then(m => m.FormulaCounterTypeModule),
+      },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
   ],

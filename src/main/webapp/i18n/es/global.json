@@ -35,6 +35,7 @@
         "command": "Command",
         "commandModel": "Command Model",
         "commandDevice": "Command Device",
+        "formulaCounterType": "Formula Counter Type",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

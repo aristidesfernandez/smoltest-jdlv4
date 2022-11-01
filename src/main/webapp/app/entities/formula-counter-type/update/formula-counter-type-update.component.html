@@ -1,0 +1,72 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-formula-counter-type-heading"
+        data-cy="FormulaCounterTypeCreateUpdateHeading"
+        jhiTranslate="smolPlusTempApp.formulaCounterType.home.createOrEditLabel"
+      >
+        Crear o editar Formula Counter Type
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="smolPlusTempApp.formulaCounterType.formula" for="field_formula">Formula</label>
+          <select
+            class="form-control"
+            id="field_formula"
+            data-cy="formula"
+            name="formula"
+            formControlName="formula"
+            [compareWith]="compareFormula"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="formulaOption" *ngFor="let formulaOption of formulasSharedCollection">{{ formulaOption.id }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="smolPlusTempApp.formulaCounterType.counterType" for="field_counterType"
+            >Counter Type</label
+          >
+          <select
+            class="form-control"
+            id="field_counterType"
+            data-cy="counterType"
+            name="counterType"
+            formControlName="counterType"
+            [compareWith]="compareCounterType"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="counterTypeOption" *ngFor="let counterTypeOption of counterTypesSharedCollection">
+              {{ counterTypeOption.counterCode }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancelar</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Guardar</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

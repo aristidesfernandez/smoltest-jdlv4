@@ -7,6 +7,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import co.com.ies.smol.IntegrationTest;
 import co.com.ies.smol.domain.CounterType;
+import co.com.ies.smol.domain.FormulaCounterType;
 import co.com.ies.smol.repository.CounterTypeRepository;
 import co.com.ies.smol.service.criteria.CounterTypeCriteria;
 import co.com.ies.smol.service.dto.CounterTypeDTO;
@@ -567,6 +568,29 @@ class CounterTypeResourceIT {
 
         // Get all the counterTypeList where udteWaitTime is greater than SMALLER_UDTE_WAIT_TIME
         defaultCounterTypeShouldBeFound("udteWaitTime.greaterThan=" + SMALLER_UDTE_WAIT_TIME);
+    }
+
+    @Test
+    @Transactional
+    void getAllCounterTypesByFormulaCounterTypeIsEqualToSomething() throws Exception {
+        FormulaCounterType formulaCounterType;
+        if (TestUtil.findAll(em, FormulaCounterType.class).isEmpty()) {
+            counterTypeRepository.saveAndFlush(counterType);
+            formulaCounterType = FormulaCounterTypeResourceIT.createEntity(em);
+        } else {
+            formulaCounterType = TestUtil.findAll(em, FormulaCounterType.class).get(0);
+        }
+        em.persist(formulaCounterType);
+        em.flush();
+        counterType.addFormulaCounterType(formulaCounterType);
+        counterTypeRepository.saveAndFlush(counterType);
+        Long formulaCounterTypeId = formulaCounterType.getId();
+
+        // Get all the counterTypeList where formulaCounterType equals to formulaCounterTypeId
+        defaultCounterTypeShouldBeFound("formulaCounterTypeId.equals=" + formulaCounterTypeId);
+
+        // Get all the counterTypeList where formulaCounterType equals to (formulaCounterTypeId + 1)
+        defaultCounterTypeShouldNotBeFound("formulaCounterTypeId.equals=" + (formulaCounterTypeId + 1));
     }
 
     /**

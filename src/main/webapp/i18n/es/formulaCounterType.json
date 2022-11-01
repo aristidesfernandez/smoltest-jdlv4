@@ -1,0 +1,25 @@
+{
+  "smolPlusTempApp": {
+    "formulaCounterType": {
+      "home": {
+        "title": "Formula Counter Types",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Formula Counter Type",
+        "createOrEditLabel": "Crear o editar Formula Counter Type",
+        "notFound": "Ningún Formula Counter Types encontrado"
+      },
+      "created": "Un nuevo Formula Counter Type ha sido creado con el identificador {{ param }}",
+      "updated": "Un Formula Counter Type ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Formula Counter Type ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Formula Counter Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Formula Counter Type"
+      },
+      "id": "ID",
+      "formula": "Formula",
+      "counterType": "Counter Type"
+    }
+  }
+}

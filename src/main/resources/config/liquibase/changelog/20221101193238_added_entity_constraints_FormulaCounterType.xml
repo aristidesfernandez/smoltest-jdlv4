@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity FormulaCounterType.
+    -->
+    <changeSet id="20221101193238-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="formula_id"
+                                 baseTableName="formula_counter_type"
+                                 constraintName="fk_formula_counter_type__formula_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="formula"/>
+
+        <addForeignKeyConstraint baseColumnNames="counter_type_counter_code"
+                                 baseTableName="formula_counter_type"
+                                 constraintName="fk_formula_counter_type__counter_type_id"
+                                 referencedColumnNames="counter_code"
+                                 referencedTableName="counter_type"/>
+    </changeSet>
+</databaseChangeLog>

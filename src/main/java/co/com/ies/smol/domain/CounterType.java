@@ -2,6 +2,8 @@ package co.com.ies.smol.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import org.hibernate.annotations.Cache;
@@ -48,6 +50,11 @@ public class CounterType implements Serializable, Persistable<String> {
 
     @Transient
     private boolean isPersisted;
+
+    @OneToMany(mappedBy = "counterType")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "formula", "counterType" }, allowSetters = true)
+    private Set<FormulaCounterType> formulaCounterTypes = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -162,6 +169,37 @@ public class CounterType implements Serializable, Persistable<String> {
     @PostPersist
     public void updateEntityState() {
         this.setIsPersisted();
+    }
+
+    public Set<FormulaCounterType> getFormulaCounterTypes() {
+        return this.formulaCounterTypes;
+    }
+
+    public void setFormulaCounterTypes(Set<FormulaCounterType> formulaCounterTypes) {
+        if (this.formulaCounterTypes != null) {
+            this.formulaCounterTypes.forEach(i -> i.setCounterType(null));
+        }
+        if (formulaCounterTypes != null) {
+            formulaCounterTypes.forEach(i -> i.setCounterType(this));
+        }
+        this.formulaCounterTypes = formulaCounterTypes;
+    }
+
+    public CounterType formulaCounterTypes(Set<FormulaCounterType> formulaCounterTypes) {
+        this.setFormulaCounterTypes(formulaCounterTypes);
+        return this;
+    }
+
+    public CounterType addFormulaCounterType(FormulaCounterType formulaCounterType) {
+        this.formulaCounterTypes.add(formulaCounterType);
+        formulaCounterType.setCounterType(this);
+        return this;
+    }
+
+    public CounterType removeFormulaCounterType(FormulaCounterType formulaCounterType) {
+        this.formulaCounterTypes.remove(formulaCounterType);
+        formulaCounterType.setCounterType(null);
+        return this;
     }
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here

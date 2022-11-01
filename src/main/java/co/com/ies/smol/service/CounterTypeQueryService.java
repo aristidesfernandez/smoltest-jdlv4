@@ -108,6 +108,15 @@ public class CounterTypeQueryService extends QueryService<CounterType> {
             if (criteria.getUdteWaitTime() != null) {
                 specification = specification.and(buildRangeSpecification(criteria.getUdteWaitTime(), CounterType_.udteWaitTime));
             }
+            if (criteria.getFormulaCounterTypeId() != null) {
+                specification =
+                    specification.and(
+                        buildSpecification(
+                            criteria.getFormulaCounterTypeId(),
+                            root -> root.join(CounterType_.formulaCounterTypes, JoinType.LEFT).get(FormulaCounterType_.id)
+                        )
+                    );
+            }
         }
         return specification;
     }

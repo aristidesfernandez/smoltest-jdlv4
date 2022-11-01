@@ -48,7 +48,8 @@
       "EventTypeModel",
       "Command",
       "CommandModel",
-      "CommandDevice"
+      "CommandDevice",
+      "FormulaCounterType"
     ],
     "entitySuffix": "",
     "gradleEnterpriseHost": "",
@@ -56,7 +57,7 @@
     "jhipsterVersion": "7.9.3",
     "jwtSecretKey": "NDViZGU0ZGQyMTY3YzEyNzY0MWNjMDVmM2E5MzE2MGM1Y2ViMmVhYzZiNzM4YzI4OWViOGQyZjFjNDg1OTFmNjRiOWIxMzE3NGRjNjUxMWI5ZDhkMDQzMTE3M2UzNDM5MTgzZGVjNGUzODY5NmFmZjA4ZjU0Yjc2ZTFhMTMxYTk=",
     "languages": ["es", "en"],
-    "lastLiquibaseTimestamp": 1632773540000,
+    "lastLiquibaseTimestamp": 1667331158000,
     "messageBroker": false,
     "nativeLanguage": "es",
     "otherModules": [],

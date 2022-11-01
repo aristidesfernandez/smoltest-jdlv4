@@ -109,7 +109,7 @@ entity CounterType {
 ------------------------------------
 entity CounterEvent {
 	id uuid
-  //counterCode String  // relationship fk CounterType
+  //counterCode String  // relationship fk CounterType // ya no es fk pertenece a otro modulo
 	//idEventDevice uuid 	// relationship fk EventDevice
 	valueCounter Long  //int 8
 	denominationSale Float 	
@@ -360,6 +360,10 @@ entity CommandDevice {
   id Long // small int 2  
 }
 
+entity FormulaCounterType{
+  id Long // small int 2  
+}
+
 relationship ManyToOne {
   //EventDevice{deviceEstablishment required} to DeviceEstablishment // no va perteneces a modulos diferentes
   EventDevice{eventType required} to EventType 
@@ -393,6 +397,8 @@ relationship ManyToOne {
   CommandModel{model required} to Model
   CommandDevice{command required} to Command
   CommandDevice{device required} to Device  
+  FormulaCounterType {formula} to Formula 
+  FormulaCounterType to CounterType // agrega como requerimiento el parametro counterCode 
 }
 
 service all with serviceImpl
@@ -453,6 +459,6 @@ filter all
 */
 
 /*
-  contador x formula
-  comandos ?
+  contador x formula // agregar
+  comandos ? // agregar
 */
